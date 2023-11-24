@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name ="chuyenbay")
@@ -20,13 +21,13 @@ public class ChuyenBay implements Serializable {
     @Id
 //    @Column(name="id", length = 45)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},targetEntity = SanBay.class)
-    @JoinColumn(name="noidi"
-//            ,insertable = false, updatable = false
-    )
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST},targetEntity = SanBay.class)
+    @JoinColumn(name="noidi")
     private SanBay noiDi;
+
+
 
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},targetEntity = SanBay.class)
     @JoinColumn(name="noiden")
@@ -44,4 +45,7 @@ public class ChuyenBay implements Serializable {
 
     @Column(name="giave")
     private long giaVe;
+
+    @Column(name="ngaybay",columnDefinition = "DATE")
+    private Date ngayBay;
 }

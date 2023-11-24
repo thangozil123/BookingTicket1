@@ -15,11 +15,11 @@ public class VeService {
     private SanBayRepository sanBayRepository;
 
     public Ve create (Ve ve) {
-        SanBay sanBay = sanBayRepository.findById(ve.getNoiDi().getId()).get();
-        SanBay sanBay1 = sanBayRepository.findById(ve.getNoiDen().getId()).get();
+        SanBay sanBay3 = sanBayRepository.findById(ve.getNoiDi().getId()).get();
+        SanBay sanBay4 = sanBayRepository.findById(ve.getNoiDen().getId()).get();
 
-        ve.setNoiDi(sanBay);
-        ve.setNoiDen(sanBay1);
+        ve.setNoiDi(sanBay3);
+        ve.setNoiDen(sanBay4);
 
         veRepository.save(ve);
         return ve;
