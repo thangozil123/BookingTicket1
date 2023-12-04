@@ -31,6 +31,12 @@ public class ChuyenBayService {
         Optional<ChuyenBay> oChuyenBay =chuyenBayRepository.findById(id);
         return oChuyenBay.get();
     }
+//  tìm kiếm chuyến bay
+    public ChuyenBay getChuyenBayByMa(String maCB){
+        Optional<ChuyenBay> oChuyenBay = chuyenBayRepository.findByMaCB(maCB);
+        if (oChuyenBay.isPresent()) return oChuyenBay.get();
+        else return null;
+    }
 //  sửa chuyến bay
     public ChuyenBay updateChuyenBay(Long id, ChuyenBay chuyenBay){
         ChuyenBay chuyenBayold = chuyenBayRepository.findById(id).get();

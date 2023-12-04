@@ -25,7 +25,10 @@ public class ChuyenBayApi {
     @GetMapping("/{id}")
     public ChuyenBay getChuyenBayById(@PathVariable Long id){
     return chuyenBayService.getChuyenBayById(id);
-}
+    }
+//  tìm kiếm chuyến bay
+    @GetMapping
+    public ChuyenBay getChuyenBayByMa(@RequestParam(name = "maCB") String maCB) {return chuyenBayService.getChuyenBayByMa(maCB);}
 // Xóa chuyến bay
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
