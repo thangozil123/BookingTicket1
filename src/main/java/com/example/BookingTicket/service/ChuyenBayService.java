@@ -7,6 +7,8 @@ import com.example.BookingTicket.repository.SanBayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ChuyenBayService {
     @Autowired
@@ -24,22 +26,27 @@ public class ChuyenBayService {
         chuyenBayRepository.save(chuyenBay);
         return chuyenBay;
     }
-
+// lấy lần khám
+    public ChuyenBay getChuyenBayById(Long id){
+        Optional<ChuyenBay> oChuyenBay =chuyenBayRepository.findById(id);
+        return oChuyenBay.get();
+    }
 //  sửa chuyến bay
     public ChuyenBay updateChuyenBay(Long id, ChuyenBay chuyenBay){
-//        ChuyenBay chuyenBayold = chuyenBayRepository.findById(id).get();
-//
-//        SanBay sanBay = sanBayRepository.findById(chuyenBay.getNoiDi().getId()).get();
-//        SanBay sanBay1 = sanBayRepository.findById(chuyenBay.getNoiDen().getId()).get();
-//
-//        chuyenBayold.setNoiDi(sanBay);
-//        chuyenBayold.setNoiDen(sanBay1);
-//        chuyenBayold.setNgayBay(chuyenBay.getNgayBay());
-//
-//        return chuyenBayRepository.save(chuyenBayold);
-//        return chuyenBayold;
+        ChuyenBay chuyenBayold = chuyenBayRepository.findById(id).get();
 
-        chuyenBay.setId(id);
-        return chuyenBayRepository.save(chuyenBay);
+        SanBay sanBay = sanBayRepository.findById(chuyenBay.getNoiDi().getId()).get();
+        SanBay sanBay1 = sanBayRepository.findById(chuyenBay.getNoiDen().getId()).get();
+
+        chuyenBayold.setNoiDi(sanBay);
+        chuyenBayold.setNoiDen(sanBay1);
+        chuyenBayold.setNgayBay(chuyenBay.getNgayBay());
+
+        return chuyenBayRepository.save(chuyenBayold);
+
+//        chuyenBay.setId(id);
+//        return chuyenBayRepository.save(chuyenBay);
     }
+//  Xóa chuyến bay
+    public void delete(Long id) {chuyenBayRepository.deleteById(id);}
 }

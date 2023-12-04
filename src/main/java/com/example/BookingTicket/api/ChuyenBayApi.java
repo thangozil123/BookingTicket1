@@ -21,4 +21,14 @@ public class ChuyenBayApi {
     public void updateChuyenBay(@PathVariable Long id,@RequestBody ChuyenBay chuyenBay){
         chuyenBayService.updateChuyenBay(id,chuyenBay);
     }
+//  lấy chuyến bay
+    @GetMapping("/{id}")
+    public ChuyenBay getChuyenBayById(@PathVariable Long id){
+    return chuyenBayService.getChuyenBayById(id);
+}
+// Xóa chuyến bay
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        chuyenBayService.delete(id);
+}
 }
