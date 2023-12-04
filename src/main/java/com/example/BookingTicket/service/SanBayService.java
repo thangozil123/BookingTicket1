@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SanBayService {
@@ -19,6 +20,12 @@ public class SanBayService {
 //  Get sân bay
     public SanBay getSanBayById(Long id){
         return sanBayRepository.findById(id).get();
+    }
+//  Tìm kiếm sân bay
+    public SanBay getSanBayByMa(String maSB){
+        Optional<SanBay> oSanBay = sanBayRepository.findByMaSB(maSB);
+        if(oSanBay.isPresent()) return oSanBay.get();
+        else return null;
     }
 //  Cập nhật sân bay
     public SanBay update(Long id,SanBay sanBay){

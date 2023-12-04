@@ -21,6 +21,11 @@ public class SanBayApi {
         return sanBayService.getSanBayById(id);
     }
 
+    @GetMapping
+    public SanBay getSanBayByMaNV(@RequestParam(name = "maSB") String maNV){
+        return sanBayService.getSanBayByMa(maNV);
+    }
+
     @PutMapping("/{id}")
     public SanBay update(@PathVariable Long id,@RequestBody SanBay sanBay){
         return sanBayService.update(id,sanBay);

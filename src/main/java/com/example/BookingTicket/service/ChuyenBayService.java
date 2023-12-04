@@ -41,10 +41,14 @@ public class ChuyenBayService {
         chuyenBayold.setNoiDi(sanBay);
         chuyenBayold.setNoiDen(sanBay1);
         chuyenBayold.setNgayBay(chuyenBay.getNgayBay());
-
+        chuyenBayold.setGiaVe(chuyenBay.getGiaVe());
+        chuyenBayold.setGioDi(chuyenBay.getGioDi());
+        chuyenBayold.setGioDen(chuyenBay.getGioDen());
+        chuyenBayold.setHangHangKhong(chuyenBay.getHangHangKhong());
+        chuyenBayold.setMaCB(chuyenBay.getMaCB());
+        chuyenBayold.setId(id);
         return chuyenBayRepository.save(chuyenBayold);
 
-//        chuyenBay.setId(id);
 //        return chuyenBayRepository.save(chuyenBay);
     }
 //  Xóa chuyến bay
