@@ -23,10 +23,12 @@ public class ChuyenBay implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "maCB", nullable = false)
+    private String maCB;
+
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST},targetEntity = SanBay.class)
     @JoinColumn(name="noidi")
     private SanBay noiDi;
-
 
 
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},targetEntity = SanBay.class)

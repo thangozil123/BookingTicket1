@@ -17,6 +17,9 @@ public class SanBay implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "maSB", nullable = false)
+    private String maSB;
+
     @Column(name = "tensanbay")
     private String tensanbay;
 
