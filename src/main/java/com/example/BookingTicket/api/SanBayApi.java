@@ -17,7 +17,7 @@ public class SanBayApi {
     public SanBay create(@RequestBody SanBay sanBay) {return sanBayService.create(sanBay); }
 
     @GetMapping("/{id}")
-    public SanBay getThuocById(@PathVariable Long id){
+    public SanBay getSanBayById(@PathVariable Long id){
         return sanBayService.getSanBayById(id);
     }
 
